@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/15.0.6/marked.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css">
+    <style>
+        @media (max-width: 767px) {
+            body {
+                padding: 15px;
+            }
+        }
+
+        body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            background-color: #ffffff;
+        }
+    </style>
+    <title>Sura</title>
+</head>
+
+<body>
+    <div id="$m" class="markdown-body"></div>
+    <textarea id="$t" style="display:none">
+# Sura
+
+    </textarea>
+    <hr>
+    <script>
+        $m.innerHTML = marked.parse($t.value);
+    </script>
+    <div id="tcomment"></div>
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.all.min.js"></script>
+    <script>
+    twikoo.init({
+        envId: 'https://twikoo-api.skypka.tech', 
+        el: '#tcomment', 
+        lang: 'en-us', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
+    })
+    </script>
+</body>
+
+</html>

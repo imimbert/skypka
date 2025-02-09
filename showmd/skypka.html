@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css">
+    <style>
+        @media (max-width: 767px) {
+            body {
+                padding: 15px;
+            }
+        }
+
+        body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            background-color: #ffffff;
+        }
+    </style>
+    <title>Skypka</title>
+</head>
+
+<body>
+    <div id="$m" class="markdown-body"></div>
+    <textarea id="$t" style="display:none">
+# Skypka
+## history
+In January 2023, a technical organization called Developers Union was created, with 0x7DA and Sura as members of the development team. Later, due to a change in members, it was renamed Skypka.
+## members
+Skypka currently has two development team members, Sura (high school sophomore) and 0x7DA (junior high school junior).
+## Projects
+Skypka currently has the following projects.
+### Private project
+- Controller
+### Public project
+- Science (providing assistance in solving various scientific problems)
+- Skypka Homepage (this website)
+
+Skypka will also focus on various technologies such as `web development`, `software development`, `algorithms`, `competitions`, `AI`, and more.
+
+
+If you want to join us, leave a message below!
+    </textarea>
+    <br>
+    <script>
+        $m.innerHTML = marked.parse($t.value);
+    </script>
+    <hr>
+    <script>
+        $m.innerHTML = marked.parse($t.value);
+    </script>
+    <div id="tcomment"></div>
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.all.min.js"></script>
+    <script>
+    twikoo.init({
+        envId: 'https://twikoo-api.skypka.tech', 
+        el: '#tcomment', 
+        lang: 'en-us', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
+    })
+    </script>
+</body>
+
+</html>
