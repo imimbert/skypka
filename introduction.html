@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Skypka - Innovation in Programming</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <style>
+        .intro-container {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+
+        .intro-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--accent-color), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: titleReveal 1s ease-out forwards;
+        }
+
+        @keyframes titleReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .intro-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-content h2 {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Skypka</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="members.html">Members</a>
+                <a href="join.html" class="cta-button">Join Us</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="intro-container">
+            <h1 class="intro-title">About Skypka</h1>
+            <div class="intro-content">
+                <p>Skypka is a cutting-edge organization dedicated to advancing programming technology innovation. Established in an era of rapid technological iteration, we embrace the philosophy of "Innovating for the Future" and bring together a group of passionate and creative developers.</p>
+
+                <p>In today's wave of digital transformation, we deeply understand the importance of technological innovation for future development. Skypka is not just a programming organization, but an innovation platform pursuing excellence. We encourage our members to break free from traditional thinking constraints, utilize the latest technology stacks and methodologies, and explore the unlimited possibilities of software development.</p>
+
+                <h2>Our Vision</h2>
+                <p>We aim to build a more open and efficient software development ecosystem through continuous technological innovation and practice. Here, every member can freely express ideas, share experiences, and grow together. We believe that technological progress stems from open collaboration and continuous exploration.</p>
+
+                <h2>Projects and Technology</h2>
+                <p>At Skypka, we currently focus on developing multiple innovative projects. Our public projects include Science (dedicated to providing solutions for various scientific problems) and the Skypka official website. Meanwhile, we are also developing a private project called Controller, continuously exploring new technological possibilities.</p>
+
+                <p>Our technical domains cover multiple directions including Web Development, Software Development, Algorithm Research, Competitive Programming, and Artificial Intelligence. Through in-depth research and practice in these fields, we continuously enhance our technical capabilities and pursue innovative breakthroughs. We believe that through continuous technological advancement and innovation, we can bring more valuable solutions to users.</p>
+
+                <h2>Community Culture</h2>
+                <p>At Skypka, we promote an open and collaborative community culture. We believe that true innovation comes from the collision of ideas and sharing of experiences. Through regular technical sharing sessions, project collaborations, and community activities, we provide our members with a platform for continuous learning and growth.</p>
+
+                <p>We welcome every developer who is passionate about technological innovation to join Skypka. Here, you will have the opportunity to participate in cutting-edge technology research and application, exploring the future of software development with like-minded partners. Let's work together to create a more innovative and open technical community.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/animations.js"></script>
+</body>
+</html>

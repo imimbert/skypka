@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members - Skypka</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <style>
+        .members-container {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .member-card {
+            background-color: var(--secondary-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 300px;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-text);
+        }
+
+        .member-info {
+            padding: 30px;
+        }
+
+        .member-name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .member-bio {
+            color: var(--secondary-text);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: rgba(41, 151, 255, 0.1);
+            color: var(--accent-color);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .featured-member {
+            grid-column: span 2;
+        }
+
+        .featured-member .member-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .featured-member .member-image {
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .featured-member {
+                grid-column: span 1;
+            }
+
+            .featured-member .member-card {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-member .member-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Skypka</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="members.html">Members</a>
+                <a href="introduction.html">About</a>
+                <a href="join.html" class="cta-button">Join Us</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="members-container">
+        <h1 class="fade-in">Our Team</h1>
+        <div class="members-grid">
+            <div class="featured-member scroll-fade-in">
+                <div class="member-card">
+                    <div class="member-image">Sura</div>
+                    <div class="member-info">
+                        <h2 class="member-name">Sura</h2>
+                        <div class="member-role">Founder & Lead Developer</div>
+                        <p class="member-bio">A student in grade 11. Also A visionary developer with extensive experience in full-stack development and system architecture. Sura founded Skypka with the goal of creating innovative solutions that push the boundaries of technology.</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">System Architecture</span>
+                            <span class="skill-tag">Full-stack Development</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="featured-member scroll-fade-in">
+                <div class="member-card">
+                    <div class="member-image">0x7DA</div>
+                    <div class="member-info">
+                        <h2 class="member-name">0x7DA</h2>
+                        <div class="member-role">Technical Director</div>
+                        <p class="member-bio">An innovative problem solver with a deep understanding of software engineering principles. 0x7DA leads our technical initiatives and ensures the highest quality standards across all projects.</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">Software Architecture</span>
+                            <span class="skill-tag">DevOps</span>
+                            <span class="skill-tag">Distributed Systems</span>
+                            <span class="skill-tag">Security</span>
+                            <span class="skill-tag">C++</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

@@ -1,94 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skypka</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>Skypka - Programming Organization</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <style>
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--accent-color), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: titleReveal 1s ease-out forwards;
+        }
 
-<body>
-    <script>
-        window.onload = function () {
-            const Http = new XMLHttpRequest();
-            const url = 'https://skypka-backend.skypka.tech/ip';
-            Http.open("GET", url);
-            Http.send();
-
-            Http.onreadystatechange = (e) => {
-                console.log(Http.responseText)
+        @keyframes titleReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    </script>
-    <!-- header part -->
-
-    <header>
-        <div class="header__logo-box">
-            <a href="/"><img src="img/logo.svg" alt="logo"></a>
-        </div>
-        <nav class="header__nav">
-            <input type="checkbox" class="nav__checkbox" id="nav__toggle">
-            <label for="nav__toggle" class="nav__button">
-                <span class="nav__icon"></span>
-            </label>
-            <div class="nav__background"></div>
-            <ul class="nav__menu">
-                <li class="menu-item"><a class="menu-item__text" href="./index.html">home</a></li>
-                <!-- <li class="menu-item"><a class="menu-item__text" href="./ShowFiles/index.html">Files</a></li> -->
-            </ul>
-
-        </nav>
-        <div class="header__user">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="55" height="55" viewBox="0 0 30 30">
-                <path
-                    d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z">
-                </path>
-            </svg>
-        </div>
-    </header>
-
-
-    <!-- main content     -->
-
-    <main class="content-wrapper">
-        <div class="content__intro">
-            <h1 class="heading-title">Skypka</h1>
-            <p class="paragraph-subtitle">A technology organization established by two students.</p>
-            <button class="btn-primary"><a class="btn-primary__text" href="./showmd/skypka.html">Join us</a></button>
-        </div>
-        <div class="content__cards">
-            <div class="card">
-                <div class="card__number">P</div>
-                <div class="card__title">Programming drives innovation</div>
-                <div class="card__subtitle">Founded in July 2023 by <a href="./showmd/sura.html">Sura</a> and <a
-                        href="./showmd/7DA.html">0x7DA</a>, Skypka is a technology organization. In its short time since
-                    establishment, Skypka has successfully completed a project (Controller)</div>
-                <button class="card__btn"><a href="./showmd/skypka.html">Learn more &#8250;</a></button>
+    </style>
+</head>
+<body class="dark-theme">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">Skypka</a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="members.html">Members</a>
+                <a href="introduction.html">About</a>
+                <a href="join.html" class="cta-button">Join Us</a>
             </div>
-            <div class="card">
-                <div class="card__number">K</div>
-                <div class="card__title">Keeping up with high-tech</div>
-                <div class="card__subtitle">At Skypka Studio, we are committed to pushing the envelope of what's
-                    possible in software development, delivering high-caliber products that anticipate future challenges
-                    and opportunities in the high-tech landscape.
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="fade-in">Welcome to Skypka</h1>
+                <p class="fade-in-delayed">Innovating the Future of Programming</p>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="section-content">
+                <h2>About Us</h2>
+                <p>Skypka is a forward-thinking programming organization dedicated to pushing the boundaries of technology and innovation. We bring together passionate developers who share a vision for creating impactful solutions that shape the future of software development. Through continuous exploration and collaboration, we strive to build a more efficient and innovative software ecosystem.</p>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Innovation</h3>
+                    <p>Pioneering new approaches to solve complex programming challenges through cutting-edge technology research and development</p>
                 </div>
-                <button class="card__btn"><a href="https://github.com/skypka">Learn more &#8250;</a></button>
+                <div class="feature-card">
+                    <h3>Projects</h3>
+                    <p>Developing innovative solutions including Science for scientific computing and Controller for system management</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Technology</h3>
+                    <p>Expertise in Web Development, Software Engineering, Algorithm Research, and Artificial Intelligence</p>
+                </div>
             </div>
-            <div class="card">
-                <div class="card__number">A</div>
-                <div class="card__title">Algorithms optimize performance.</div>
-                <div class="card__subtitle">Skypka has conducted in-depth research on algorithms and completed the <a
-                        href="https://github.com/Scientifiction/science">Science</a> project.</div>
-                <button class="card__btn"><a href="https://github.com/Scientifiction/science">Learn more
-                        &#8250;</a></button>
+        </section>
+
+        <section class="join-section">
+            <div class="section-content">
+                <h2>Join Our Community</h2>
+                <p>Be part of our innovative community where you can collaborate with passionate developers, participate in cutting-edge projects, and shape the future of technology together.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="https://github.com/skypka" class="social-link">GitHub</a>
+                    <a href="mailto:skypka@qq.com" class="social-link">Email</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2024-2025 Skypka. All rights reserved.</p>
             </div>
         </div>
-    </main>
-    <footer>
-        <p class="footer__copyright">Skypka ©2024-2025</p>
     </footer>
-</body>
 
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
 </html>

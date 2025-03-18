@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline - Skypka</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <style>
+        .timeline-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 0 20px;
+        }
+
+        .timeline-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 100px;
+            padding: 50px 100px;
+            min-width: max-content;
+        }
+
+        .timeline-item {
+            flex: 0 0 400px;
+            scroll-snap-align: center;
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .timeline-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline-description {
+            color: var(--secondary-text);
+            line-height: 1.6;
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-hint.hidden {
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex: 0 0 300px;
+            }
+
+            .timeline {
+                gap: 50px;
+                padding: 50px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Skypka</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="members.html">Members</a>
+                <a href="introduction.html">About</a>
+                <a href="join.html" class="cta-button">Join Us</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="timeline-container">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">January 2023</div>
+                <h3 class="timeline-title">Establishment of Developers Union</h3>
+                <p class="timeline-description">The technical organization Developers Union was officially established, with 0x7DA and Sura as development team members initiating the organization's journey.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2023</div>
+                <h3 class="timeline-title">Rebranded as Skypka</h3>
+                <p class="timeline-description">Due to membership changes, the organization was renamed to Skypka, continuing with Sura (high school sophomore) and 0x7DA (middle school freshman) as the core development team.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2023</div>
+                <h3 class="timeline-title">Project Development</h3>
+                <p class="timeline-description">Successfully launched multiple projects, including the private project Controller and public project Science (providing various scientific problem-solving solutions) as well as the official Skypka website.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2024</div>
+                <h3 class="timeline-title">Technical Exploration</h3>
+                <p class="timeline-description">Focused on innovation and practice in multiple technical fields including web development, software development, algorithm research, competitions, and artificial intelligence.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-hint">Scroll horizontally to explore our journey →</div>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const scrollHint = document.querySelector('.scroll-hint');
+            let scrollTimeout;
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            const timelineContainer = document.querySelector('.timeline-container');
+            timelineContainer.addEventListener('scroll', () => {
+                scrollHint.classList.add('hidden');
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    if (timelineContainer.scrollLeft < 50) {
+                        scrollHint.classList.remove('hidden');
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
