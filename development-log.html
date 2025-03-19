@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Log - Skypka</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <style>
+        .dev-log-container {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+            perspective: 1000px;
+        }
+
+        .dev-log-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .log-entry {
+            background-color: var(--secondary-bg);
+            border-radius: 20px;
+            padding: 30px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px) rotateX(-10deg);
+        }
+
+        .log-entry.visible {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        .log-entry:hover {
+            transform: translateY(-10px) rotateX(5deg) scale(1.02);
+        }
+
+        .log-date {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            transform: translateZ(20px);
+            display: inline-block;
+        }
+
+        .log-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            transform: translateZ(30px);
+        }
+
+        .log-content {
+            color: var(--secondary-text);
+            line-height: 1.6;
+            transform: translateZ(10px);
+        }
+
+        .log-tag {
+            display: inline-block;
+            background-color: rgba(41, 151, 255, 0.1);
+            color: var(--accent-color);
+            padding: 5px 15px;
+            border-radius: 15px;
+            margin: 10px 10px 0 0;
+            font-size: 0.9rem;
+            transform: translateZ(15px);
+        }
+
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .parallax-shape {
+            position: absolute;
+            background: linear-gradient(45deg, var(--accent-color), transparent);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.1;
+            transition: transform 0.3s ease;
+        }
+
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: 10%;
+        }
+
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            top: 60%;
+            right: 15%;
+        }
+
+        @media (max-width: 768px) {
+            .log-entry {
+                padding: 20px;
+            }
+
+            .log-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Skypka</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="members.html">Members</a>
+                <a href="introduction.html">About</a>
+                <a href="join.html" class="cta-button">Join Us</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="parallax-bg">
+        <div class="parallax-shape shape-1"></div>
+        <div class="parallax-shape shape-2"></div>
+    </div>
+
+    <div class="dev-log-container">
+        <h1 class="fade-in">Development Log</h1>
+        <div class="dev-log-grid">
+            
+            <div class="log-entry scroll-fade-in">
+                <div class="log-date">2025.3.19</div>
+                <h2 class="log-title">Bug Fixing</h2>
+                <div class="log-content">
+                    <p>Fix bugs in "join us" page.</p>
+                </div>
+                <div class="log-tags">
+                    <span class="log-tag">Fixing bugs</span>
+                </div>
+            </div>
+
+            <div class="log-entry scroll-fade-in">
+                <div class="log-date">2025.3.18</div>
+                <h2 class="log-title">Create project</h2>
+                <div class="log-content">
+                    <p>This website was created by 0x7DA.</p>
+                </div>
+                <div class="log-tags">
+                    <span class="log-tag">Planning</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const parallaxShapes = document.querySelectorAll('.parallax-shape');
+            
+            window.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth - 0.5;
+                const mouseY = e.clientY / window.innerHeight - 0.5;
+
+                parallaxShapes.forEach((shape, index) => {
+                    const speed = index + 1;
+                    const x = mouseX * 100 * speed;
+                    const y = mouseY * 100 * speed;
+                    shape.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+
+            // Intersection Observer for log entries
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.log-entry').forEach(entry => {
+                observer.observe(entry);
+            });
+        });
+    </script>
+</body>
+</html>

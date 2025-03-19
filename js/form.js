@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = joinForm?.querySelector('.submit-button');
     const successMessage = document.createElement('div');
     successMessage.className = 'success-message';
-    successMessage.textContent = '提交成功！我们会尽快与您联系。';
+    successMessage.textContent = "We'll get back to you soon.";
 
     if (joinForm) {
         joinForm.addEventListener('submit', async (e) => {
